@@ -31,4 +31,5 @@ In your solution you must provide the following in your Github link account:
 
 ### UML Class Diagram:
 
-![Adapter Pattern - UML Class Diagram](https://github.com/user-attachments/assets/2e296e4b-4b9e-43aa-a7f1-7d22b8548961)
+![UML Class Diagram](https://github.com/user-attachments/assets/1bb96d6a-c192-472a-af22-9666995819f1)
+
