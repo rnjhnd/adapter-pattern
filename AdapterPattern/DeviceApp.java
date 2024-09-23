@@ -17,7 +17,7 @@ public class DeviceApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("WELCOME TO DEVICE MANAGEMENT APP! \n");
+        System.out.println("WELCOME TO DEVICE MANAGEMENT APP!\n");
 
         while (true) {
             System.out.println("Please select a device: ");
