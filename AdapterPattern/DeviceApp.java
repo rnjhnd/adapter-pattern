@@ -9,10 +9,10 @@ public class DeviceApp {
         Laptop laptop = new Laptop();
         PowerOutlet lt = new LaptopAdapter(laptop);
 
-        Refrigerator  refrigerator  = new Refrigerator();
+        Refrigerator refrigerator  = new Refrigerator();
         PowerOutlet rf = new RefrigeratorAdapter(refrigerator);
 
-        SmartphoneCharger  smartphoneCharger = new SmartphoneCharger();
+        SmartphoneCharger smartphoneCharger = new SmartphoneCharger();
         PowerOutlet sp = new SmartphoneAdapter(smartphoneCharger);
 
         Scanner scanner = new Scanner(System.in);
@@ -61,7 +61,3 @@ public class DeviceApp {
         }
     }
 }
-
-
-
-        
