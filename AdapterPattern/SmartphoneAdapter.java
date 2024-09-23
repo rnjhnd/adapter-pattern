@@ -1,4 +1,5 @@
 package AdapterPattern;
+
 public class SmartphoneAdapter implements PowerOutlet {
     private SmartphoneCharger smartphoneCharger;
 

@@ -1,4 +1,5 @@
 package AdapterPattern;
+
 public class RefrigeratorAdapter implements PowerOutlet{
     private Refrigerator refrigerator;
 

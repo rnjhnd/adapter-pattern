@@ -1,4 +1,5 @@
 package AdapterPattern;
+
 public class LaptopAdapter implements PowerOutlet{
     private Laptop laptop;
 
