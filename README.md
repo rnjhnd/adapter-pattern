@@ -27,3 +27,8 @@ In your solution you must provide the following in your Github link account:
   - Problem statement (description of the problem. Just copy what is stated here.
   - UML Class Diagram
   - Uploaded java codes for the solution.</div>
+
+
+### UML Class Diagram:
+
+![Adapter Pattern - UML Class Diagram](https://github.com/user-attachments/assets/2e296e4b-4b9e-43aa-a7f1-7d22b8548961)
