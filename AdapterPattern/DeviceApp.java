@@ -1,3 +1,4 @@
+package AdapterPattern;
 import java.util.Scanner;
 
 public class DeviceApp {
