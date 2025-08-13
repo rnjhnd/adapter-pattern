@@ -160,7 +160,7 @@ Potential improvements:
 - GUI or REST API front-end
 
 ## 📊 UML Class Diagram
-![UML Class Diagram](src/UML%20Class%20Diagram.png)
+<img width="2060" height="1200" alt="UML Class Diagram" src="https://github.com/user-attachments/assets/0b3729c9-991e-45c5-a7e3-8b950dc9303b" />
 
 The diagram illustrates relationships between the target interface, concrete adapters, and adaptees.
 
@@ -177,4 +177,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Note: This implementation demonstrates clean code principles and design patterns best practices. The Adapter pattern is particularly useful when you need to make existing classes with incompatible interfaces work together without modifying their source code.
+**Note:** This implementation demonstrates clean code principles and design patterns best practices. The Adapter pattern is particularly useful when you need to make existing classes with incompatible interfaces work together without modifying their source code.
