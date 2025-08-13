@@ -1,4 +1,4 @@
-## Device Power Adapter
+# Device Power Adapter
 
 A Java implementation of the Adapter Design Pattern for plugging different device types into a common power outlet interface.
 
