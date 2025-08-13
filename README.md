@@ -27,17 +27,18 @@ The project follows the Adapter Design Pattern with the following components:
 
 ```
 device-power-adapter/
-├── README.md                         # This file
 └── src/
-    ├── DeviceApp.java               # Main client (console app)
-    ├── PowerOutlet.java             # Target interface
-    ├── Laptop.java                  # Adaptee
-    ├── LaptopAdapter.java           # Adapter for Laptop
-    ├── Refrigerator.java            # Adaptee
-    ├── RefrigeratorAdapter.java     # Adapter for Refrigerator
-    ├── SmartphoneCharger.java       # Adaptee
-    ├── SmartphoneAdapter.java       # Adapter for SmartphoneCharger
-    └── UML Class Diagram.png        # Architecture diagram
+│   ├── DeviceApp.java               # Main client (console app)
+│   ├── PowerOutlet.java             # Target interface
+│   ├── Laptop.java                  # Adaptee
+│   ├── LaptopAdapter.java           # Adapter for Laptop
+│   ├── Refrigerator.java            # Adaptee
+│   ├── RefrigeratorAdapter.java     # Adapter for Refrigerator
+│   ├── SmartphoneCharger.java       # Adaptee
+│   ├── SmartphoneAdapter.java       # Adapter for SmartphoneCharger
+│   └── UML Class Diagram.png        # Architecture diagram
+└── README.md                        # Project documentation
+
 ```
 
 ## 🚀 Usage
