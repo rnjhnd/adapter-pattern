@@ -27,7 +27,7 @@ The project follows the Adapter Design Pattern with the following components:
 
 ```
 device-power-adapter/
-└── src/
+├── src/
 │   ├── DeviceApp.java               # Main client (console app)
 │   ├── PowerOutlet.java             # Target interface
 │   ├── Laptop.java                  # Adaptee
