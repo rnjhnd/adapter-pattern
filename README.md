@@ -1,72 +1,111 @@
 # Device Power Adapter
 
-A Java implementation of the Adapter Design Pattern for plugging different device types into a common power outlet interface.
+A Java implementation of the **Adapter Design Pattern** for connecting different electronic devices to a standardized power outlet interface. This project demonstrates how to use adapter objects to make incompatible device interfaces work together seamlessly.
 
 ## 📋 Overview
 
-This project shows how to use the Adapter Pattern to make heterogeneous devices (laptop, refrigerator, smartphone charger) compatible with a single `PowerOutlet` target interface. Each device keeps its own API, while an adapter translates calls to the common `plugIn()` method.
+The Device Power Adapter allows you to connect various electronic devices (laptop, refrigerator, smartphone charger) to a common power outlet interface. Instead of modifying existing device classes, the system uses adapter classes to translate between the device-specific APIs and the standardized `PowerOutlet` interface, making device integration more flexible and maintainable.
 
 ## 🏗️ Architecture
 
-The project follows the Adapter Design Pattern with the following components:
+This project implements the **Adapter Design Pattern** with the following components:
 
-### Core Target Interface
-- `PowerOutlet`: Defines the `plugIn()` method used by clients
+- **PowerOutlet Interface**: Defines the standardized `plugIn()` method for all devices
+- **Device Classes**: Laptop, Refrigerator, and SmartphoneCharger with their specific APIs
+- **Adapter Classes**: LaptopAdapter, RefrigeratorAdapter, and SmartphoneAdapter that implement PowerOutlet
+- **Main Application**: Interactive console application demonstrating the adapter pattern
 
-### Adaptees (Existing/External APIs)
-- `Laptop`: Provides `charge()`
-- `Refrigerator`: Provides `startCooling()`
-- `SmartphoneCharger`: Provides `chargePhone()`
+### Design Pattern Benefits
 
-### Adapters (Translate to Target)
-- `LaptopAdapter`: Implements `PowerOutlet` and delegates to `Laptop.charge()`
-- `RefrigeratorAdapter`: Implements `PowerOutlet` and delegates to `Refrigerator.startCooling()`
-- `SmartphoneAdapter`: Implements `PowerOutlet` and delegates to `SmartphoneCharger.chargePhone()`
+- **Compatibility**: Enables devices with incompatible interfaces to work together
+- **Flexibility**: Easy to add new device types by creating new adapters
+- **Maintainability**: Existing device code remains unchanged
+- **Reusability**: Adapters can be reused across different client applications
+
+## 📊 UML Class Diagram
+
+![UML Class Diagram](src/UML%20Class%20Diagram.png)
+
+The following diagram illustrates:
+- The architecture of the Device Power Adapter system
+- Relationships between the core components:
+  - The `PowerOutlet` interface
+  - Concrete device classes: `Laptop`, `Refrigerator`, `SmartphoneCharger`
+  - Adapter classes: `LaptopAdapter`, `RefrigeratorAdapter`, `SmartphoneAdapter`
+  - The main application class
+- How the Adapter design pattern is applied in this project
+
+## 🚀 Features
+
+- **Multiple Device Types**: Support for laptop, refrigerator, and smartphone charger
+- **Standardized Interface**: All devices work through the common `PowerOutlet` interface
+- **Interactive Console**: User-friendly menu system for device interaction
+- **Extensible Design**: Easy to add new device types and adapters
+- **Clean Architecture**: Well-structured, maintainable code
 
 ## 📁 Project Structure
 
 ```
 device-power-adapter/
 ├── src/
-│   ├── DeviceApp.java               # Main client (console app)
-│   ├── PowerOutlet.java             # Target interface
-│   ├── Laptop.java                  # Adaptee
-│   ├── LaptopAdapter.java           # Adapter for Laptop
-│   ├── Refrigerator.java            # Adaptee
-│   ├── RefrigeratorAdapter.java     # Adapter for Refrigerator
-│   ├── SmartphoneCharger.java       # Adaptee
-│   ├── SmartphoneAdapter.java       # Adapter for SmartphoneCharger
-│   └── UML Class Diagram.png        # Architecture diagram
-└── README.md                        # Project documentation
-
+│   ├── DeviceApp.java                  # Main application demo
+│   ├── PowerOutlet.java                # Target interface
+│   ├── Laptop.java                     # Laptop device implementation
+│   ├── LaptopAdapter.java              # Adapter for Laptop
+│   ├── Refrigerator.java               # Refrigerator device implementation
+│   ├── RefrigeratorAdapter.java        # Adapter for Refrigerator
+│   ├── SmartphoneCharger.java          # Smartphone charger implementation
+│   ├── SmartphoneAdapter.java          # Adapter for SmartphoneCharger
+│   └── UML Class Diagram.png           # Architecture diagram
+└── README.md                           # Project documentation
 ```
 
-## 🚀 Usage
+## 🛠️ Installation & Setup
 
-### Running the Application
+### Prerequisites
 
-Requirements: Java 8+ (JDK)
+- Java Development Kit (JDK) 8 or higher
+- Any Java IDE (IntelliJ IDEA, Eclipse, VS Code, etc.)
 
-- Windows PowerShell:
-```powershell
-# Compile (PowerShell doesn't expand wildcards for external programs)
-$sources = Get-ChildItem -Path src -Filter *.java | ForEach-Object { $_.FullName }
-javac -d out $sources
+### Getting Started
 
-# Run
-java -cp out AdapterPattern.DeviceApp
+1. **Clone or download** the project files
+2. **Navigate** to the project directory
+3. **Compile** the Java files:
+   ```bash
+   javac -d out src/*.java
+   ```
+4. **Run** the application:
+   ```bash
+   java -cp out AdapterPattern.DeviceApp
+   ```
+
+## 📖 Usage
+
+### Basic Usage
+
+The main application (`DeviceApp.java`) demonstrates how to use the adapter pattern:
+
+```java
+// Create device instances
+Laptop laptop = new Laptop();
+Refrigerator refrigerator = new Refrigerator();
+SmartphoneCharger smartphoneCharger = new SmartphoneCharger();
+
+// Create adapters for each device
+PowerOutlet laptopAdapter = new LaptopAdapter(laptop);
+PowerOutlet refrigeratorAdapter = new RefrigeratorAdapter(refrigerator);
+PowerOutlet smartphoneAdapter = new SmartphoneAdapter(smartphoneCharger);
+
+// Use devices through the common interface
+String result1 = laptopAdapter.plugIn();      // "The laptop is in the process of charging!"
+String result2 = refrigeratorAdapter.plugIn(); // "The refrigerator is cold and actively cooling!"
+String result3 = smartphoneAdapter.plugIn();   // "The smartphone is now charging!"
 ```
 
-- macOS/Linux or Windows CMD:
-```bash
-# Compile (shell expands the wildcard)
-javac -d out src/*.java
+### Expected Output
 
-# Run
-java -cp out AdapterPattern.DeviceApp
-```
-
-### Example Output
+When you run the application, you'll see:
 
 ```
 WELCOME TO DEVICE MANAGEMENT APP!
@@ -94,83 +133,58 @@ Enter your choice: 4
 Exiting the program...
 ```
 
-## 💡 Design Pattern Benefits
+## 🔧 Extending the Project
 
-### Adapter Pattern Advantages
-1. **Separation of Concerns**: Device-specific logic stays in adaptee classes; adapters isolate integration logic.
-2. **Extensibility**: Add new device types by creating new adapters without changing existing client code.
-3. **Uniform Interface**: Clients depend only on `PowerOutlet` regardless of the underlying device.
-4. **Single Responsibility**: Each adapter handles one translation from target to adaptee API.
+### Adding New Device Types
 
-### Key Features
-- **Interface-First Design**: Clients program to the `PowerOutlet` interface.
-- **Type-Specific Delegation**: Each adapter calls the appropriate adaptee method.
-- **Simple Console UI**: Interactive menu to trigger device actions.
+To add a new device type (e.g., `Toaster`):
 
-## 🔧 Implementation Details
+1. **Create** a new device class with its specific API
+2. **Create** an adapter class implementing `PowerOutlet`
+3. **Add** the new device to the main application
 
-### Target Interface
+Example:
 ```java
-interface PowerOutlet {
-    String plugIn();
+public class Toaster {
+    public String toast() {
+        return "The toaster is heating up!";
+    }
+}
+
+public class ToasterAdapter implements PowerOutlet {
+    private final Toaster toaster;
+    
+    public ToasterAdapter(Toaster toaster) {
+        this.toaster = toaster;
+    }
+    
+    @Override
+    public String plugIn() {
+        return toaster.toast();
+    }
 }
 ```
 
-### Adaptees
-```java
-class Laptop { String charge() { return "The laptop is in the process of charging!"; } }
-class Refrigerator { String startCooling() { return "The refrigerator is cold and actively cooling!"; } }
-class SmartphoneCharger { String chargePhone() { return "The smartphone is now charging!"; } }
-```
+## 🎯 Design Patterns Used
 
-### Adapters
-```java
-class LaptopAdapter implements PowerOutlet {
-    private final Laptop laptop;
-    public LaptopAdapter(Laptop laptop) { this.laptop = laptop; }
-    public String plugIn() { return laptop.charge(); }
-}
+### Adapter Pattern
+- **Purpose**: Convert the interface of a class into another interface clients expect
+- **Benefits**: Enables incompatible interfaces to work together without modifying existing code
+- **Implementation**: Each adapter implements the `PowerOutlet` interface and delegates to the specific device
 
-class RefrigeratorAdapter implements PowerOutlet {
-    private final Refrigerator refrigerator;
-    public RefrigeratorAdapter(Refrigerator refrigerator) { this.refrigerator = refrigerator; }
-    public String plugIn() { return refrigerator.startCooling(); }
-}
-
-class SmartphoneAdapter implements PowerOutlet {
-    private final SmartphoneCharger smartphoneCharger;
-    public SmartphoneAdapter(SmartphoneCharger smartphoneCharger) { this.smartphoneCharger = smartphoneCharger; }
-    public String plugIn() { return smartphoneCharger.chargePhone(); }
-}
-```
-
-## 🎯 Use Cases
-
-Ideal for:
-- Systems integrating devices with diverse, existing APIs
-- Applications needing a unified interface for different device operations
-- Teaching and demonstrating structural design patterns in Java
-
-## 🔮 Future Enhancements
-
-Potential improvements:
-- Additional devices (e.g., `Toaster`, `AirConditioner`)
-- Power specifications (voltage/amperage) and validation
-- Error handling and input validation in the console UI
-- Unit tests and CI workflow
-- GUI or REST API front-end
-
-## 📊 UML Class Diagram
-<img width="2060" height="1200" alt="UML Class Diagram" src="https://github.com/user-attachments/assets/0b3729c9-991e-45c5-a7e3-8b950dc9303b" />
-
-The diagram illustrates relationships between the target interface, concrete adapters, and adaptees.
+### Interface Segregation
+- **Purpose**: Keep interfaces focused and cohesive
+- **Benefits**: Clients only depend on the methods they actually use
+- **Implementation**: `PowerOutlet` interface defines only the essential `plugIn()` method
 
 ## 🤝 Contributing
 
-Contributions are welcome:
-- Add new device types and adapters
-- Improve the console UX and documentation
-- Add tests or alternative client UIs
+Feel free to contribute to this project by:
+- Adding new device types and adapters
+- Improving the console interface
+- Enhancing the adapter pattern implementation
+- Adding unit tests
+- Creating alternative user interfaces (GUI, web-based)
 
 ## 📄 License
 
@@ -178,4 +192,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Note:** This implementation demonstrates clean code principles and design patterns best practices. The Adapter pattern is particularly useful when you need to make existing classes with incompatible interfaces work together without modifying their source code.
+**Note**: This implementation demonstrates clean code principles and design patterns best practices. The Adapter pattern is particularly useful when you need to integrate existing classes with incompatible interfaces, when you want to reuse existing functionality without modifying source code, or when you need to provide a unified interface for multiple subsystems.
