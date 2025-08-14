@@ -1,4 +1,4 @@
-# Device Power Adapter
+# Plugging Devices into Power Outlets
 
 A Java implementation of the **Adapter Design Pattern** for connecting different electronic devices to a standardized power outlet interface. This project demonstrates how to use adapter objects to make incompatible device interfaces work together seamlessly.
 
@@ -24,7 +24,7 @@ This project implements the **Adapter Design Pattern** with the following compon
 
 ## 📊 UML Class Diagram
 
-![UML Class Diagram](src/UML%20Class%20Diagram.png)
+<img width="2060" height="1200" alt="UML Class Diagram" src="https://github.com/user-attachments/assets/3c0bac52-8549-4bb4-aa8e-5f20d74ca323" />
 
 The following diagram illustrates:
 - The architecture of the Device Power Adapter system
@@ -55,8 +55,7 @@ device-power-adapter/
 │   ├── Refrigerator.java               # Refrigerator device implementation
 │   ├── RefrigeratorAdapter.java        # Adapter for Refrigerator
 │   ├── SmartphoneCharger.java          # Smartphone charger implementation
-│   ├── SmartphoneAdapter.java          # Adapter for SmartphoneCharger
-│   └── UML Class Diagram.png           # Architecture diagram
+│   └── SmartphoneAdapter.java          # Adapter for SmartphoneCharger
 └── README.md                           # Project documentation
 ```
 
